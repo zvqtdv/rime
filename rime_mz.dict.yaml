@@ -1,0 +1,18 @@
+# Rime dictionary
+# encoding: utf-8
+#
+# A minimal Pinyin dictionary for simplified Chinese script
+#
+# Derived from android open source project:
+# http://android.git.kernel.org/?p=platform/packages/inputmethods/PinyinIME.git
+#
+
+---
+name: rime_mz
+version: "0.1"
+sort: original  # by_weight权重 original原始位置
+import_tables:
+  - dicts/custom_simple          # 自定义
+  - dicts/rime_ice.8105          # 霧凇拼音 常用字集合
+    #- dicts/py
+...

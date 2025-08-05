@@ -1,0 +1,3 @@
+patch:
+  #"menu/alternative_select_labels": [ Ⅰ, Ⅱ, Ⅲ, Ⅳ, Ⅴ, Ⅵ, Ⅶ, Ⅷ, Ⅸ, Ⅹ ]
+  "menu/alternative_select_labels": [ ⅰ, ⅱ, ⅲ, ⅳ, ⅴ, ⅵ, ⅶ, ⅷ, ⅸ, ⅹ ] 

@@ -1,0 +1,98 @@
+# Rime schema settings
+# encoding: utf-8
+
+schema:
+  schema_id: wubi98_base
+  name: "五笔98"
+  version: "0.1"
+  author:
+    - 發明人 王永民先生
+  description: |
+    五筆字型98版
+    碼表源自 ibus-table
+    敲 z 鍵進入拼音反查
+  dependencies:
+    - pinyin_simp
+
+switches:
+  - name: ascii_mode
+    reset: 0
+    states: [ 中文, 西文 ]
+  - name: full_shape
+    states: [ 半角, 全角 ]
+  - name: extended_charset
+    states: [ 通用, 增廣 ]
+  - name: simplification
+    reset: 1
+    states: [ 漢字, 汉字 ]
+
+engine:
+  processors:
+    - ascii_composer
+    - recognizer
+    - key_binder
+    - speller
+    - punctuator
+    - selector
+    - navigator
+    - express_editor
+  segmentors:
+    - ascii_segmentor
+    - matcher
+    - abc_segmentor
+    - punct_segmentor
+    - fallback_segmentor
+  translators:
+    - punct_translator
+    - reverse_lookup_translator
+    - table_translator
+  filters:
+    - simplifier@transcription_cc  
+    - uniquifier
+
+# 简繁切换
+transcription_cc:
+  option_name: transcription_cc
+  opencc_config: s2t.json             # s2t.json | s2hk.json | s2tw.json | s2twp.json
+  tips: all                            # 转换提示: all 都显示 | char 仅单字显示 | none 不显示。
+  inherit_comment: false
+
+speller:  #拼写时选项
+  delimiter: " ;'"
+  max_code_length: 4  #最大输入四码
+  auto_select: false
+  #  auto_clear: max_length                # 空码时自动清空
+  auto select: false  #自动上屏
+  auto_select_unique_candidate: false  #唯一字自动提交
+
+translator:
+  dictionary: wubi98_base
+  enable_charset_filter: true
+  enable_sentence: false  # 启用自动句子输入
+  enable_user_dict: false  # 启用用户词典
+  enable_encoder: true  # 启用自动造词
+  encode_commit_history: true  # 对已上屏的词语进行自动编码以提高下次输入的命中率
+  max_phrase_length: 2
+  disable_user_dict_for_patterns:
+    - "^z.*$"
+
+reverse_lookup:
+  dictionary: pinyin_simp
+  prefix: "z"
+  suffix: "'"
+  tips: 〔拼音〕
+  preedit_format:
+    - xform/([nl])v/$1ü/
+    - xform/([nl])ue/$1üe/
+    - xform/([jqxy])v/$1u/
+
+punctuator:
+  import_preset: default
+
+key_binder:
+  import_preset: default
+
+recognizer:
+  import_preset: default
+  patterns:
+    reverse_lookup: "^z[a-z]*'?$"

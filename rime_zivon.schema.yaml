@@ -1,0 +1,196 @@
+# Rime schema settings
+# encoding: utf-8
+
+schema:
+  schema_id: rime_zivon
+  name: "wubi98_zivon"
+  version: "0.1"
+  author:
+    - 發明人 王永民先生
+  description: |
+    五筆字型98版
+    碼表源自 ibus-table
+    敲 z 鍵進入拼音反查
+  dependencies:
+    - double_pinyin_flypy
+  icon: icons/cn.ico
+  ascii_icon: icons/en.ico
+
+switches:
+  - name: ascii_mode
+    reset: 0
+    states: [ 中文, 西文 ]
+  - name: full_shape
+    states: [ 半角, 全角 ]
+  - name: extended_charset
+    states: [ 通用, 增廣 ]
+  - name: simplification
+    reset: 1
+    states: [ 漢字, 汉字 ]
+
+engine:
+  processors:
+    - ascii_composer
+    - recognizer
+    - key_binder
+    - speller
+    - punctuator
+    - selector
+    - navigator
+    - express_editor
+  segmentors:
+    - ascii_segmentor
+    - matcher
+    - affix_segmentor@double_pinyin_flypy
+    - abc_segmentor
+    - punct_segmentor
+    - fallback_segmentor
+  translators:
+    - punct_translator
+    - reverse_lookup_translator
+    - table_translator
+    - reverse_lookup_translator@double_pinyin_flypy
+  filters:
+    - simplifier@transcription_cc  
+    - uniquifier
+
+# 简繁切换
+transcription_cc:
+  option_name: transcription_cc
+  opencc_config: s2t.json             # s2t.json | s2hk.json | s2tw.json | s2twp.json
+  tips: all                            # 转换提示: all 都显示 | char 仅单字显示 | none 不显示。
+  inherit_comment: false
+
+speller:  #拼写时选项
+  # max_code_length: 4  #最大输入四码
+  auto_select: false
+  #  auto_clear: max_length                # 空码时自动清空
+  auto select: false  #自动上屏
+  auto_select_unique_candidate: false  #唯一字自动提交
+  alphabet: abcdefghijklmnopqrstuvwxyz  # 可以删掉 ; 了
+  #delimiter: " '"  # " ;'"
+  algebra:
+    #- xform/a/ⓐ/
+    #- xform/b/ⓑ/
+    #- xform/c/ⓒ/
+    #- xform/d/ⓓ/
+    #- xform/e/ⓔ/
+    #- xform/f/ⓕ/
+    #- xform/g/ⓖ/
+    #- xform/h/ⓗ/
+    #- xform/i/ⓘ/
+    #- xform/j/ⓙ/
+    #- xform/k/ⓚ/
+    #- xform/l/ⓛ/
+    #- xform/m/ⓜ/
+    #- xform/n/ⓝ/
+    #- xform/o/ⓞ/
+    #- xform/p/ⓟ/
+    #- xform/q/ⓠ/
+    #- xform/r/ⓡ/
+    #- xform/s/ⓢ/
+    #- xform/t/ⓣ/
+    #- xform/u/ⓤ/
+    #- xform/v/ⓥ/
+    #- xform/w/ⓦ/
+    #- xform/x/ⓧ/
+    #- xform/y/ⓨ/
+    #- xform/z/ⓩ/
+
+    #- xform/a/ⓐ/
+    #- xform/v/ⓑ/
+    #- xform/m/ⓒ/
+    #- xform/h/ⓓ/
+    #- xform/r/ⓔ/
+    #- xform/t/ⓕ/
+    #- xform/g/ⓖ/
+    #- xform/y/ⓗ/
+    #- xform/u/ⓘ/
+    #- xform/n/ⓙ/
+    #- xform/e/ⓚ/
+    #- xform/o/ⓛ/
+    #- xform/l/ⓜ/
+    #- xform/k/ⓝ/
+    #- xform/p/ⓞ/
+    #- xform/i/ⓟ/
+    #- xform/q/ⓠ/
+    #- xform/w/ⓡ/
+    #- xform/s/ⓢ/
+    #- xform/b/ⓣ/
+    #- xform/f/ⓤ/
+    #- xform/c/ⓥ/
+    #- xform/d/ⓦ/
+    #- xform/x/ⓧ/
+    #- xform/j/ⓨ/
+    #- xform/z/ⓩ/
+    #- xlit/ⓐⓑⓒⓓⓔⓕⓖⓗⓘⓙⓚⓛⓜⓝⓞⓟⓠⓡⓢⓣⓤⓥⓦⓧⓨⓩ/avmhrtgypneolkpiqwsbfcdxjz/ 
+
+    #- xform/a/a/
+    #- xform/b/v/
+    #- xform/c/m/
+    #- xform/d/h/
+    #- xform/e/r/
+    #- xform/f/t/
+    #- xform/g/g/
+    #- xform/h/y/
+    #- xform/i/u/
+    #- xform/j/n/
+    #- xform/k/e/
+    #- xform/l/o/
+    #- xform/m/l/
+    #- xform/n/k/
+    #- xform/o/p/
+    #- xform/p/i/
+    #- xform/q/q/
+    #- xform/r/w/
+    #- xform/s/s/
+    #- xform/t/b/
+    #- xform/u/f/
+    #- xform/v/c/
+    #- xform/w/d/
+    #- xform/x/x/
+    #- xform/y/j/
+    #- xform/z/z/
+    #- xlit/ⓐⓑⓒⓓⓔⓕⓖⓗⓘⓙⓚⓛⓜⓝⓞⓟⓠⓡⓢⓣⓤⓥⓦⓧⓨⓩ/avmhrtgypneolkpiqwsbfcdxjz/ 
+
+
+
+punctuator:
+  import_preset: default
+
+translator:
+  dictionary: rime_zivon
+  enable_charset_filter: false
+  enable_sentence: false  # 启用自动句子输入
+  enable_user_dict: false  # 启用用户词典_自动调频
+  enable_encoder: false  # 启用自动造词
+  encode_commit_history: false  # 对已上屏的词语进行自动编码以提高下次输入的命中率
+
+  
+double_pinyin_flypy:  # 反查设置
+  #dictionary: double_pinyin_flypy
+  dictionary: pinyin_simp
+  enable_completion: false
+  enable_sentence: false
+  prefix: "z"
+  #tips: 〔flypy〕
+  tips: 〔fly〕
+
+
+recognizer:
+  import_preset: default
+  patterns:
+    reverse_lookup: "^z[a-z]*'?$"
+    url: "^[a-z]+[.].+$"
+    punct: "^/[0-9a-zA-Z]*'?$"
+
+key_binder:
+  import_preset: default
+  bindings:
+    # 2.分号上屏二候选词，3.引号上屏三候选词
+    - { when: has_menu, accept: semicolon, send: 2 }
+    - { when: has_menu, accept: apostrophe, send: 3 }
+
+
+menu:
+  page_size: 3

@@ -1,0 +1,158 @@
+---
+name: wubi98_user
+version: "2019-01-20"
+last_edit_time: "2021-08-07"
+dict_grouped: true # 词库管理应用识别：标记该码表为分组模式
+
+sort: original
+  # 码表的排序方式
+  # by_weight 权重
+  # original 原始顺序
+
+#use_preset_vocabulary: true # 是否引入【八股文】的词频词序
+
+# 格式：字词 键码  权重 （中间是tab，不是空格）
+# '#'开头的只是注释， 注释只能另起一行写，不能在词条后面写
+# `##` 两个 # 开头的会被识别为分组名，其后跟的词条就是该组的内容
+
+...
+## Math
+第一行	tgtg
+第二行	tftg
+第三行	tdtg
+第四行	tltg
+第五行	tgtg
+第六行	tutg
+第八行	twtg
+第七行	tatg
+第九行	tvtg
+第十行	tftg
+第一个	tgwh
+第二个	tfwh
+第三个	tdwh
+第四个	tlwh
+第五个	tgwh
+第六个	tuwh
+第七个	tawh
+第八个	twwh
+第九个	tvwh
+第十个	tfwh
+第一种	tgtk
+第二种	tftk
+第三种	tdtk
+第四种	tltk
+第五种	tgtk
+第六种	tutk
+第七种	tatk
+第八种	twtk
+第九种	tvtk
+第十种	tftk
+
+## Computer
+正则	ghmj
+正则表达式	gmga
+网盘	mrtu
+映射	jmtm
+挂载	rffa
+便携	wgrw
+便携版	wrth
+文件	yywt
+下载	ghfa
+文件夹	ywgu
+公网	wcmr
+外网	qhmr
+同步	mghh
+教程	fttk
+视频	pyhh
+标签	sftw
+鍵盘	qvtu
+计算机	ytsw
+
+## Arch
+赖特	skcf
+快题	nnjg
+建筑快题	vtnj
+抄绘	rixw
+快题抄绘	njrx
+图片	ltth
+
+## English
+纠音	xnuj
+短音	tduj
+二声	fgfn
+辅音	lsuj
+拼读	ruyf
+自然拼读	tqry
+介词	wjyn
+前置词	ulyn
+意群	ujvt
+非谓语	hyyg
+破折	dbrr
+破折号	drkg
+真题	fhjg
+英语真题	ayfj
+简单句	tuqk
+语法	ygif
+
+## -XU自定义词库-
+简悦	tunu
+大佬	ddwf
+二手	fgrt
+百度翻译	doty
+补全	puwg
+海购	itmq
+全程	wgtk
+分针	wvqf
+时针	jfqf
+小孔	ihbn
+盛水	dnii
+小棒	ihsd
+记满	ynia
+审验	pjcg
+打字通	rpce
+虚拟机	hrsw
+微信	tmwy
+测速	imsk
+伊索	wvfp
+伊索寓言	wfpy
+暗黑	julf
+分栏	wvsu
+超链接	fqru
+卡顿	hhgb
+分神	wvpy
+廖郭山	oymm
+廖郭	onyb
+小众	ihww
+快搜	nnre
+工式	aaaa
+固件	ldwt
+下划线	gaxg
+提分	rjwv
+学姐	ipve
+知乎	tdtu
+导图	nflt
+思维导图	lxnl
+五笔	ggte
+关联	udbu
+开源	gaid
+插件	rtwt
+全程	wgtk
+音乐	ujtn
+进阶	fjbw
+管理	tpgj
+管理器	tgkk
+浏览	iyjt
+浏览器	ijkk
+语音	yguj
+笔记	teyn
+天生	gdtg
+内容	mwpw
+制作	tgwt
+相关	shud
+部分	ukwv
+工具	aahw
+文件	yywt
+文本	yysg
+保存	wkdh
+部门	ukbh
+这样	ypsu
